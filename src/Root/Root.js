@@ -1,5 +1,7 @@
 import React from "react";
-import QRcode from "./QRcode/QRcode";
+import './index.css'
+import MainPage from "../MainPage/MainPage";
+import QRpage from "../QRpage/QRpage";
 
 class Root extends React.Component {
   state = {
@@ -14,13 +16,12 @@ class Root extends React.Component {
   };
 
   generateQRcode = () => {
-    console.log("it works");
     this.setState({
       isQRcodeGenerated: true,
     });
   };
 
-  newGenerate = () => {
+  newCase = () => {
     this.setState({
       isQRcodeGenerated: false,
       text: "",
@@ -31,14 +32,8 @@ class Root extends React.Component {
     const { isQRcodeGenerated } = this.state;
     return (
       <div>
-        {!isQRcodeGenerated && (
-          <input type={"text"} onChange={this.handleChange} name="text" autoComplete='off'/>
-        )}
-        {!isQRcodeGenerated && (
-          <button onClick={this.generateQRcode}>Generate.</button>
-        )}
-        {isQRcodeGenerated && <QRcode text={this.state.text} />}
-        {isQRcodeGenerated && <button onClick={this.newGenerate}>back</button>}
+        { !isQRcodeGenerated && <MainPage handleChange={this.handleChange} generateQRcode={this.generateQRcode}/> }
+        { isQRcodeGenerated && <QRpage text={this.state.text} newCase={this.newCase}/> }
       </div>
     );
   }
