@@ -3,3 +3,8 @@ It's a simpy App which uses axios to connect with free Google API by passing imp
 
 ## Preview
 ![QR-code-App](https://media.giphy.com/media/bqKJeXfoSXuuxWmZ1J/giphy.gif)
+
+## Tech Stack
+- React
+- axios
+- node-sass
